@@ -1,0 +1,12 @@
+.ViewShelfItem-image {
+    object-fit: contain;
+    width: 250px;
+}
+
+.ViewShelfItem-card {
+    width: 300px;
+    border: 2px black solid;
+    margin: 15px;
+    padding: 0px;
+    text-align: center;
+}
