@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class TotalItem extends Component {
 
     componentDidMount() {
-        this.props.dispatch({ type: 'GET_TOTAL_ITEM' });
+        this.props.dispatch({ type: 'GET_TOTALITEM' });
     }
 
     render() {
@@ -20,7 +20,7 @@ class TotalItem extends Component {
 
                 <tbody>
                     {this.props.reduxState.totalItemReducer.map(item =>
-                        <tr>
+                        <tr key={item.username}>
                             <td>{item.username}</td>
                             <td>{item.count}</td>
                         </tr>
