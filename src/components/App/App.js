@@ -16,7 +16,9 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
+import AddItem from '../AddItem/AddItem';
 import ViewShelf from '../ViewShelf/ViewShelf';
+
 
 import './App.css';
 
@@ -48,6 +50,12 @@ class App extends Component {
               exact
               path="/home"
               component={UserPage}
+            />
+
+            <ProtectedRoute
+              exact
+              path="/form"
+              component={AddItem}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}

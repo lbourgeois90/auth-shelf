@@ -6,6 +6,5 @@ const itemListReducer = (state = [], action) => {
         return state;
     }
   };
-  
-  export default itemListReducer;
-  
+
+export default itemListReducer;

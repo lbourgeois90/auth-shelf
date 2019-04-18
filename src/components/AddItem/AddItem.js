@@ -7,6 +7,7 @@ class AddItem extends Component {
         newItem:{
             description: '',
             image_url:'',
+            user_id: this.props.reduxState.user.id,
         }
     }
 
@@ -44,7 +45,7 @@ class AddItem extends Component {
                value={this.state.newItem.description}
                onChange={this.handleChangeFor('description')} />
         <br />
-        <label>From:</label>
+        <label>Image URL:</label>
         <input type="text" 
                value={this.state.newItem.image_url}
                onChange={this.handleChangeFor('image_url')} />
