@@ -69,8 +69,17 @@ router.put('/:id', (req, res) => {
  * they have added to the shelf
  */
 router.get('/count', (req, res) => {
+const sqlText = `SELECT "user"."username", COUNT("item"."user_id") FROM "user" JOIN "item" ON "item"."user_id" = "user"."id"  GROUP BY "user"."username", "item"."user_id";`;
 
+pool.query(sqlText)
+.then(response => {
+    res.send(response.rows);
+})
+.catch(error => {
+    console.log('Something went wrong getting items', error);
+})
 });
+
 
 
 /**
