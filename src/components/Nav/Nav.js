@@ -25,6 +25,9 @@ const Nav = (props) => (
           <Link className="nav-link" to="/shelfview">
             View Items
           </Link>
+          <Link className="nav-link" to="/totalitemview">
+            Total Items
+          </Link>
           <Link className="nav-link" to="/info">
             Info Page
           </Link>
