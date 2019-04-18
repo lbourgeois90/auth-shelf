@@ -11,12 +11,12 @@ router.get('/', (req, res) => {
         JOIN "user" ON "user"."id" = "item"."user_id";`;
 
     pool.query(sqlText)
-    .then(response => {
-        res.send(response.rows);
-    })
-    .catch( error => {
-        console.log('Something went wrong getting items', error);
-    });
+        .then(response => {
+            res.send(response.rows);
+        })
+        .catch(error => {
+            console.log('Something went wrong getting items', error);
+        });
 });
 
 
@@ -32,7 +32,15 @@ router.post('/', (req, res) => {
  * Delete an item if it's something the logged in user added
  */
 router.delete('/:id', (req, res) => {
-
+    const id = req.params.id;
+    const sqlText = `DELETE FROM "item" WHERE "item"."id" = $1`;
+    pool.query(sqlText, [id])
+        .then(() => {
+            res.sendStatus(200);
+        }).catch(error => {
+            console.log('error deleting item:', error);
+            res.sendStatus(500);
+        })
 });
 
 

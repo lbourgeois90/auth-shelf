@@ -11,9 +11,9 @@ class ViewShelf extends Component {
 
     render() {
         return (
-            <section>
+            <section className="ViewShelf-card-area">
                 {this.props.reduxState.itemListReducer.map(item =>
-                    <ViewShelfItem key={item.id} item={item} />
+                    <ViewShelfItem key={item.item_id} item={item} />
                 )}
             </section>
         )

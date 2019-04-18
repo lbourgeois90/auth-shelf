@@ -9,4 +9,9 @@
     margin: 15px;
     padding: 0px;
     text-align: center;
+    display: inline-block;
+}
+
+.ViewShelfItem-button {
+    margin: 5px;
 }

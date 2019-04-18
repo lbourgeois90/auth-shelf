@@ -1,0 +1,4 @@
+.ViewShelf-card-area {
+    display: flex;
+    flex-wrap: wrap;
+}
