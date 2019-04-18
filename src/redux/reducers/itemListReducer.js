@@ -7,3 +7,5 @@ const itemListReducer = (state = [], action) => {
     }
   };
   
+  export default itemListReducer;
+  
