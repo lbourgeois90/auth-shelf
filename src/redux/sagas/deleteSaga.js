@@ -4,7 +4,7 @@ import axios from 'axios';
 function* deleteItemSaga(action) {
     console.log('in deleteItemSaga');
     try{
-        yield axios.delete('/api/shelf', action.payload);
+        yield axios.delete(`/api/shelf/${action.payload}`);
         yield put({type: 'GET_ITEM'});
     }
     catch (error) {

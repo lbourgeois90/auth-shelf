@@ -6,7 +6,17 @@ const router = express.Router();
  * Get all of the items on the shelf
  */
 router.get('/', (req, res) => {
-    res.sendStatus(200); // For testing only, can be removed
+    const sqlText = `SELECT "item"."id" AS "item_id", "item"."description", 
+        "item"."image_url", "item"."user_id", "user"."username" FROM "item"
+        JOIN "user" ON "user"."id" = "item"."user_id";`;
+
+    pool.query(sqlText)
+        .then(response => {
+            res.send(response.rows);
+        })
+        .catch(error => {
+            console.log('Something went wrong getting items', error);
+        });
 });
 
 
@@ -34,7 +44,15 @@ pool.query(sqlText,
  * Delete an item if it's something the logged in user added
  */
 router.delete('/:id', (req, res) => {
-
+    const id = req.params.id;
+    const sqlText = `DELETE FROM "item" WHERE "item"."id" = $1`;
+    pool.query(sqlText, [id])
+        .then(() => {
+            res.sendStatus(200);
+        }).catch(error => {
+            console.log('error deleting item:', error);
+            res.sendStatus(500);
+        })
 });
 
 
