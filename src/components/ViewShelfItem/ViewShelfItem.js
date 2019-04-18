@@ -14,7 +14,7 @@ class ViewShelfItem extends Component {
             <div className="ViewShelfItem-card">
                 <h2>{this.props.item.description}</h2>
                 <img alt={this.props.item.description} src={this.props.item.image_url} className="ViewShelfItem-image" />
-                <p className="">Owner: {this.props.item.username}</p>
+                <p>Owner: {this.props.item.username}</p>
                 <button onClick={this.deleteItem} className="ViewShelfItem-button">Delete</button>
             </div>
         )
