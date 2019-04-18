@@ -14,7 +14,19 @@ router.get('/', (req, res) => {
  * Add an item for the logged in user to the shelf
  */
 router.post('/', (req, res) => {
-
+let item = req.body
+console.log( item );
+const sqlText = `INSERT INTO "item" ("description", "image_url", "user_id") VALUES ($1, $2, $3);`;
+pool.query(sqlText, 
+[ item.description, item.image_url, item.user_id ]
+)
+.then((result) => {
+    res.sendStatus(201);
+})
+.catch((error) => {
+    console.log(`ERROR in POST`, error);
+    res.sendStatus(500);
+});
 });
 
 
